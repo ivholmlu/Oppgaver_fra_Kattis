@@ -1,12 +1,15 @@
 
-fasit = [1, 1, 2, 2, 2, 8]
+not_dominant = {'A':11, 'K':4, 'Q':3, 'J':2, 'T':10, '9':0, '8':0, '7':0}
+dominant = {'A':11, 'K':4, 'Q':3, 'J':20, 'T':10, '9':14, '8':0, '7':0}
 
-gjeldende = [int(j) for j in input().split()]
+summ = 0
+N, B = input().split()
+N = int(N)
 
-mangler = []
-
-for x, numb in enumerate(gjeldende):
-    i = fasit[x]-numb
-    mangler.append(str(i))
-
-print(' '.join(mangler))
+for i in range(int(4*N)):
+    card = input()
+    if card[1] == B:
+        summ += dominant[card[0]]
+    else:
+        summ += not_dominant[card[0]]
+print(summ)
